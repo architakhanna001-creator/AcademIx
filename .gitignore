@@ -1,0 +1,19 @@
+# Secret API key
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Uploaded PDFs
+uploads/
+
+# Virtual environments
+venv/
+.venv/
+
+# VS Code settings
+.vscode/
+
+# macOS files
+.DS_Store
