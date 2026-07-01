@@ -123,32 +123,6 @@ http://127.0.0.1:5000
 
 ---
 
-## 📸 Screenshots
-
-> Add screenshots here after uploading them.
-
-### Home Page
-
-<img src="screenshots/home.png" width="900">
-
-### AI Summary
-
-<img src="screenshots/summary.png" width="900">
-
-### Flashcards
-
-<img src="screenshots/flashcards.png" width="900">
-
-### Quiz
-
-<img src="screenshots/quiz.png" width="900">
-
-### Dark Mode
-
-<img src="screenshots/darkmode.png" width="900">
-
----
-
 ## 🎯 Future Improvements
 
 - Voice-based learning assistant
@@ -166,7 +140,7 @@ http://127.0.0.1:5000
 **Archita Khanna**
 
 - GitHub: https://github.com/architakhanna001-creator
-- LinkedIn: *(Add your LinkedIn profile here)*
+- LinkedIn: www.linkedin.com/in/archita-khanna
 
 ---
 
