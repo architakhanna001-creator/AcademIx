@@ -1,44 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
+{% block content %}
 
-    <meta charset="UTF-8">
+<div class="hero-section">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1 class="display-4 fw-bold">
+        <span style="color:var(--accent);">✦</span> AcademIx
+    </h1>
 
-    <title>StudyMate AI</title>
+    <p class="lead mt-3">
+        Upload your study notes and let AcademIx create summaries, flashcards and quizzes.
+    </p>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</div>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="card shadow-lg border-0">
 
-</head>
+    <div class="card-body p-5">
 
-<body>
+        <form
+            id="uploadForm"
+            action="/upload"
+            method="POST"
+            enctype="multipart/form-data">
 
-<div class="container">
+            <div class="mb-4">
 
-    <div class="hero">
+                <label class="form-label fw-bold">
 
-        <h1>📚 StudyMate AI</h1>
+                    Select PDF
 
-        <p>
-            Transform Notes into Knowledge
-        </p>
+                </label>
 
-        <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input
+                    class="form-control"
+                    type="file"
+                    name="pdf_file"
+                    accept=".pdf"
+                    required>
 
-            <input
-                class="form-control mb-3"
-                type="file"
-                name="pdf_file"
-                accept=".pdf"
-                required>
+            </div>
 
-            <button class="btn btn-primary btn-lg w-100">
+            <button
+                type="submit"
+                class="btn btn-primary btn-lg">
 
-                Analyze Notes
+                🚀 Generate Study Material
 
             </button>
 
@@ -48,6 +55,32 @@
 
 </div>
 
-</body>
+<!-- Loading Overlay -->
 
-</html>
+<div id="loadingOverlay">
+
+    <div class="text-center">
+
+        <div
+            class="spinner-border text-light"
+            style="width:5rem;height:5rem;">
+
+        </div>
+
+        <h2 class="text-white mt-4">
+
+            AcademIx is thinking...
+
+        </h2>
+
+        <p class="text-white">
+
+            Creating Summary, Flashcards and Quiz
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

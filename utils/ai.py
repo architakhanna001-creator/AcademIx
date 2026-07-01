@@ -5,7 +5,7 @@ from google import genai
 # Load environment variables
 load_dotenv()
 
-# Get API key from .env
+# Get Gemini API key
 api_key = os.getenv("GEMINI_API_KEY")
 
 # Create Gemini client

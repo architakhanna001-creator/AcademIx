@@ -1,0 +1,170 @@
+<section id="quizSection">
+
+<div class="card shadow-lg border-0 mt-5">
+
+    <div class="card-header academix-header text-white d-flex justify-content-between align-items-center">
+
+        <h3 class="mb-0">
+            ❓ AI Quiz
+        </h3>
+
+        <span class="badge academix-badge">
+            {{ quiz|length }} Questions
+        </span>
+
+    </div>
+
+    <div class="card-body">
+
+        {% if quiz %}
+
+        <!-- Progress -->
+
+        <div class="progress mb-4" style="height:25px;">
+
+            <div
+                id="quizProgress"
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                style="width:0%;">
+
+                0%
+
+            </div>
+
+        </div>
+
+        <form id="quizForm">
+
+            {% for q in quiz %}
+
+            {% set question_index = loop.index0 %}
+
+            <div class="card mb-4 shadow-sm">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold mb-3">
+
+                        {{ loop.index }}. {{ q.question }}
+
+                    </h5>
+
+                    {% for option in q.options %}
+
+                    <div class="form-check mb-2">
+
+                        <input
+
+                            class="form-check-input"
+
+                            type="radio"
+
+                            name="q{{ question_index }}"
+
+                            value="{{ option }}"
+
+                            onchange="updateProgress()"
+
+                        >
+
+                        <label class="form-check-label">
+
+                            {{ option }}
+
+                        </label>
+
+                    </div>
+
+                    {% endfor %}
+
+                    <div
+                        class="correct-answer alert alert-success mt-3"
+                        style="display:none;">
+
+                        ✅ Correct Answer:
+                        <strong>{{ q.answer }}</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            <div class="text-center">
+
+                <button
+
+                    type="button"
+
+                    class="btn btn-primary btn-lg"
+
+                    onclick="submitQuiz()">
+
+                    Submit Quiz
+
+                </button>
+
+            </div>
+
+        </form>
+
+        <div
+
+            id="scoreBox"
+
+            class="alert mt-4"
+
+            style="display:none;">
+
+        </div>
+
+        <div class="text-center mt-3">
+
+            <button
+
+                id="restartQuiz"
+
+                class="btn btn-outline-primary"
+
+                onclick="location.reload()"
+
+                style="display:none;">
+
+                🔄 Restart Quiz
+
+            </button>
+
+        </div>
+
+        {% else %}
+
+        <div class="alert academix-alert">
+
+            Quiz could not be generated.
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</section>
+
+<script>
+
+const correctAnswers = [
+
+{% for q in quiz %}
+
+{{ q.answer|tojson }}{% if not loop.last %},{% endif %}
+
+{% endfor %}
+
+];
+
+</script>

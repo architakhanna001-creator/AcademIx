@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AcademIx</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- =========================
+     AI Loading Screen
+========================= -->
+
+<div id="loadingOverlay">
+
+    <div class="loading-card">
+
+        <div class="brand-icon">
+
+            <span class="loading-star">✦</span>
+
+        </div>
+
+        <h2 class="fw-bold mt-3">
+
+            Academ<span class="brand-accent">Ix</span>
+
+        </h2>
+
+        <p id="loadingText" class="text-muted mb-4">
+
+            Reading your PDF...
+
+        </p>
+
+        <div class="progress loading-progress">
+
+            <div
+                id="loadingBar"
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                style="width:0%">
+
+            </div>
+
+        </div>
+
+        <h5 class="mt-3">
+
+            <span id="loadingPercent">0%</span>
+
+        </h5>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Navbar
+========================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold fs-3 d-flex align-items-center gap-2" href="/">
+
+            <span class="brand-star">✦</span>
+
+            <span>Academ<span class="brand-accent">Ix</span></span>
+
+        </a>
+
+        <button
+            id="themeToggle"
+            class="btn btn-light">
+
+            🌙 Dark Mode
+
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- =========================
+     Main Content
+========================= -->
+
+<div class="container py-4">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+<!-- =========================
+     JavaScript
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/flashcards.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+
+</body>
+
+</html>
